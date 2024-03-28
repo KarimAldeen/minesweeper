@@ -57,3 +57,7 @@ body{
 .mine_sweeper > [data-status="REVEALED"] {
   background-color: green;
 } 
+.label{
+  font-size: 30px;
+  margin-inline: 20px;
+}

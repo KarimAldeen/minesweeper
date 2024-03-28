@@ -10,7 +10,7 @@ import { GameStateEnum } from '../enums/tile_enum';
 import revealCellSound from '../assets/music/revealCellSound.wav';
 //@ts-ignore
 import mineCellSound from '../assets/music/mineCellSound.mp3';
-
+import { InputNumber,Button } from 'antd';
 const App: React.FC = () => {
   const [revealclickAudio] = useState(new Audio(revealCellSound));
   const [mineclickAudio] = useState(new Audio(mineCellSound));
@@ -60,24 +60,15 @@ const App: React.FC = () => {
       {!game && (
           <>
             <div>
-        <label htmlFor="boardSize">Board Size:</label>
-        <input
-          type="number"
-          id="boardSize"
-          value={boardSize}
-          onChange={(e) => setBoardSize(parseInt(e.target.value))}
-        />
+        <label className='label' htmlFor="boardSize">Board Size:</label>
+        <InputNumber size='large'  defaultValue={boardSize} onChange={(value:any) => setBoardSize(parseInt(value))} />
+       
       </div>
       <div>
-        <label htmlFor="minesNumber">Number of Mines:</label>
-        <input
-          type="number"
-          id="minesNumber"
-          value={minesNumber}
-          onChange={(e) => setMinesNumber(parseInt(e.target.value))}
-        />
+        <label className='label'  htmlFor="minesNumber">Number of Mines:</label>
+        <InputNumber size='large'  defaultValue={minesNumber} onChange={(value:any) => setMinesNumber(parseInt(value))} />
       </div>
-      <button onClick={startGame}>Start Game</button>
+      <Button onClick={startGame}>Start Game</Button>
 
           </>
       )}
